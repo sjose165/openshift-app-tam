@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  app-yaml
+  labels:
+    app:  app-yaml
+spec:
+  selector:
+    matchLabels:
+      app: app-yaml
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app:  app-yaml
+    spec:
+      # initContainers:
+        # Init containers are exactly like regular containers, except:
+          # - Init containers always run to completion.
+          # - Each init container must complete successfully before the next one starts.
+      containers:
+      - name:  app-yaml
+        image:  registry.access.redhat.com/ubi8/nginx-122:latest
+        command: ["nginx"]
+        args: [ "-g", "daemon off;" ]
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort:  8080
+          name:  app-yaml
+      restartPolicy: Always
