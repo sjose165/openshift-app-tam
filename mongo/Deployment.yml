@@ -1,0 +1,324 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  generateName: api-info-mongo-75977f6c65-
+  annotations:
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.129.6.218"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "openshift-sdn",
+          "interface": "eth0",
+          "ips": [
+              "10.129.6.218"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: cpu, memory request for container api-info-mongo;
+      cpu, memory limit for container api-info-mongo; cpu, memory request for
+      container mongo-db; cpu, memory limit for container mongo-db
+    openshift.io/generated-by: OpenShiftWebConsole
+    openshift.io/scc: restricted
+  resourceVersion: '1138586194'
+  name: api-info-mongo-75977f6c65-2bk95
+  uid: b0bebf03-c3a0-41f7-ac66-0ab1c09496bd
+  creationTimestamp: '2022-05-30T04:49:45Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2022-05-30T04:49:45Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:deploymentconfig': {}
+            'f:pod-template-hash': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"191747fd-af41-4686-a228-8aa7d32f25fd"}': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"api-info-mongo"}':
+              .: {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":8088,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:protocol': {}
+              'f:resources': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+            'k:{"name":"mongo-db"}':
+              .: {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":27017,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:protocol': {}
+              'f:resources': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext': {}
+          'f:terminationGracePeriodSeconds': {}
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2022-05-30T04:49:47Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+      subresource: status
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: v1
+      time: '2022-05-30T04:49:48Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"10.129.6.218"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+  namespace: gestion-2bcore-dev
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: api-info-mongo-75977f6c65
+      uid: 191747fd-af41-4686-a228-8aa7d32f25fd
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: api-info-mongo
+    deploymentconfig: api-info-mongo
+    pod-template-hash: 75977f6c65
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: default-dockercfg-7pm6h
+  priority: -3
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: ip-10-0-209-21.us-east-2.compute.internal
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c117,c44'
+    fsGroup: 1013660000
+  containers:
+    - resources:
+        limits:
+          cpu: '1'
+          memory: 750Mi
+        requests:
+          cpu: 10m
+          memory: 64Mi
+      terminationMessagePath: /dev/termination-log
+      name: api-info-mongo
+      securityContext:
+        capabilities:
+          drop:
+            - KILL
+            - MKNOD
+            - SETGID
+            - SETUID
+        runAsUser: 1013660000
+      ports:
+        - containerPort: 8088
+          protocol: TCP
+      imagePullPolicy: Always
+      volumeMounts:
+        - name: kube-api-access-x4g48
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/gestion-2bcore-dev/api-info-mongo@sha256:29be070ad3e8316888775226f4b6b01d4e0d3260ca5302709ae943a9bde4ef32
+    - resources:
+        limits:
+          cpu: '1'
+          memory: 750Mi
+        requests:
+          cpu: 10m
+          memory: 64Mi
+      terminationMessagePath: /dev/termination-log
+      name: mongo-db
+      securityContext:
+        capabilities:
+          drop:
+            - KILL
+            - MKNOD
+            - SETGID
+            - SETUID
+        runAsUser: 1013660000
+      ports:
+        - containerPort: 27017
+          protocol: TCP
+      imagePullPolicy: Always
+      volumeMounts:
+        - name: kube-api-access-x4g48
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/mongo/mongo@sha256:8e7bd3e19aef226de7889c00527381047e6cce27d8c86451413ba7888ba83dcc
+  serviceAccount: default
+  volumes:
+    - name: kube-api-access-x4g48
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+  priorityClassName: sandbox-users-pods
+status:
+  phase: Pending
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2022-05-30T04:49:45Z'
+    - type: Ready
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2022-05-30T04:49:45Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [mongo-db]'
+    - type: ContainersReady
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2022-05-30T04:49:45Z'
+      reason: ContainersNotReady
+      message: 'containers with unready status: [mongo-db]'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2022-05-30T04:49:45Z'
+  hostIP: 10.0.209.21
+  podIP: 10.129.6.218
+  podIPs:
+    - ip: 10.129.6.218
+  startTime: '2022-05-30T04:49:45Z'
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: api-info-mongo
+      state:
+        running:
+          startedAt: '2022-05-30T04:49:47Z'
+      imageID: >-
+        image-registry.openshift-image-registry.svc:5000/gestion-2bcore-dev/api-info-mongo@sha256:29be070ad3e8316888775226f4b6b01d4e0d3260ca5302709ae943a9bde4ef32
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/gestion-2bcore-dev/api-info-mongo:latest
+      lastState: {}
+      containerID: 'cri-o://e5fd98d2601146aa0e5cbf1cf7ab46677861ae5a3376b5ff8011d8e6fc580243'
+    - name: mongo-db
+      state:
+        waiting:
+          reason: ErrImagePull
+          message: >-
+            rpc error: code = Unknown desc = reading manifest
+            sha256:8e7bd3e19aef226de7889c00527381047e6cce27d8c86451413ba7888ba83dcc
+            in image-registry.openshift-image-registry.svc:5000/mongo/mongo:
+            unauthorized: authentication required
+      lastState: {}
+      ready: false
+      restartCount: 0
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/mongo/mongo@sha256:8e7bd3e19aef226de7889c00527381047e6cce27d8c86451413ba7888ba83dcc
+      imageID: ''
+      started: false
+  qosClass: Burstable
