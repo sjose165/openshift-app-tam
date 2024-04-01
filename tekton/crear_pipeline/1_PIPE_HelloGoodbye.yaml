@@ -18,11 +18,18 @@ spec:
             value: hello
           - name: namespace
             value: tkn-task
-    # - name: goodbye
-    #   runAfter:
-    #     - hello
-    #   taskRef:
-    #     name: goodbye
-    #   params:
-    #   - name: username
-    #     value: $(params.username)
+    - name: goodbye
+      runAfter:
+        - hello
+      taskRef:
+        resolver: git
+        params:
+          - name: url
+            value: https://github.com/Carlos-ZRM/openshift-app.git
+          - name: revision
+            value: main
+          - name: pathInRepo
+            value: tekton/crear_pipeline/2_TASK_GoodBye.yaml
+      params:
+      - name: username
+        value: $(params.username)
