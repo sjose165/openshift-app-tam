@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: hello-goodbye
+  namespace: tkn-pipelines
 spec:
   params:
   - name: username
@@ -9,12 +10,19 @@ spec:
   tasks:
     - name: hello
       taskRef:
-        name: hello
-    - name: goodbye
-      runAfter:
-        - hello
-      taskRef:
-        name: goodbye
-      params:
-      - name: username
-        value: $(params.username)
+        resolver: cluster
+        params:
+          - name: kind
+            value: task
+          - name: name
+            value: hello
+          - name: namespace
+            value: tkn-task
+    # - name: goodbye
+    #   runAfter:
+    #     - hello
+    #   taskRef:
+    #     name: goodbye
+    #   params:
+    #   - name: username
+    #     value: $(params.username)
