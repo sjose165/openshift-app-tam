@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: goodbye
+spec:
+  params:
+  - name: username
+    type: string
+  steps:
+    - name: goodbye
+      #image: docker.io/alpine:latest
+      image: registry.redhat.io/rhel7:7.9-1314
+      script: |
+        #!/bin/sh
+        echo "Goodbye $(params.username)!"   

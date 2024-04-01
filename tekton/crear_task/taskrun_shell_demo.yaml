@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: taskrun-shell-demo-oc-
+  labels:
+    tekton.dev/task: task-shell-demo
+spec:
+  taskRef:
+    kind: Task
+    name: task-shell-demo
+  params:
+    - name: command_name
+      value: id
+  serviceAccountName: pipeline
