@@ -7,7 +7,7 @@ spec:
   params:
     - name: command_name
       type: string
-      default: cat
+      default: date
   results:
     - name: command_result
       description: Salida del comando ejecutado
