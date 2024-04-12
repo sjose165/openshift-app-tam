@@ -40,4 +40,41 @@ Initializing provider plugins...
 terraform plan -out=plan.out
 terraform show -json plan.out > plan.json
 terraform-visual --plan plan.json
-~~~ 
+~~~
+
+![./image.png](./image.png)
+
+## Aplicar terraform
+
+~~~ bash
+terraform apply
+
+Plan: 4 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+kubernetes_namespace.appnamespace: Creating...
+module.http_app.kubernetes_deployment.deployment_app: Creating...
+kubernetes_namespace.appnamespace: Creation complete after 0s [id=terraforms]
+module.http_app.kubernetes_deployment.deployment_app: Creation complete after 8s [id=terraforms/httpdxpk]
+module.http_app.kubernetes_service.deployment_svc: Creating...
+module.http_app.kubernetes_service.deployment_svc: Creation complete after 0s [id=terraforms/httpdxpk]
+module.http_app.kubernetes_manifest.route: Creating...
+module.http_app.kubernetes_manifest.route: Creation complete after 1s
+
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+~~~
+
+## Validar
+
+~~~ bash
+oc get route -n terraforms
+
+NAME       HOST/PORT                                                           PATH   SERVICES   PORT        TERMINATION   WILDCARD
+httpdxpk   httpdxpk-terraforms.apps.cluster-name.io          httpdxpk   http-port   edge          None
+
+~~~

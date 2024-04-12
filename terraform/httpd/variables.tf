@@ -1,11 +1,11 @@
 variable "host" {
    type = string
-   default = "https://api.shrocp4upi414ovn.lab.upshift.rdu2.redhat.com:6443"
+   default = ""
 }
 
 variable "token_temp" {
    type = string
-   default = "sha256~CR7Efckx6w5hZIkHSmdwpkGD-NHEX4G1LKvszCkz1tY"
+   default = ""
 }
 
 variable "namespace" {
