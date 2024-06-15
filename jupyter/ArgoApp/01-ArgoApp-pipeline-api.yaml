@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: pipeline-api
-  namespace: notapipe
+  namespace: openshift-gitops
 spec:
   project: default
   source:
