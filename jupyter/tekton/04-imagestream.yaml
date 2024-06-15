@@ -6,5 +6,3 @@ metadata:
 spec:
   lookupPolicy:
     local: false
-status:
-  dockerImageRepository: ""
