@@ -1,8 +1,8 @@
 # Crear aplicaciones http
 
-Se crea una aplicación HTTP con el provider de Kubernetes, el cual puede administrar recursos del API de Kubernetes (CR) para crear recursos como Rutas, DeploymentConfigs u operadores es necesario utilizar el modulo de (CRD) manualmente.
+Se crea una aplicación HTTP con el provider de Kubernetes, el cual puede administrar recursos del API de Kubernetes (CR) pero para crear recursos como Rutas, DeploymentConfigs u operadores es necesario utilizar el módulo de (CRD) manualmente.
 
-En este ejercicio se crea un modulo para automatizar la creación de aplicaciones httpd.
+En este ejercicio se crea un módulo para automatizar la creación de aplicaciones httpd.
 
 ## Configuración de la versión del provider
 

@@ -1,0 +1,39 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: pipelinerun-ci-jupyter-
+spec:
+  # taskRunSpecs:
+  #   - pipelineTaskName: buildah-bud
+  #     computeResources:
+  #       requests:
+  #         cpu: 4
+  #         memory: 4Gi
+      
+  pipelineRef:
+    name: pipeline-ci-jupyter
+  #serviceAccountName: tekton-adm
+  workspaces:
+  - name: workspace-git
+    #emptyDir: {}
+    persistentVolumeClaim:
+      claimName: pvc-git-jupyter
+    # volumeClaimTemplate:
+    #     spec:
+    #       accessModes:
+    #         - ReadWriteOnce # access mode may affect how you can use this volume in parallel tasks
+    #       resources:
+    #         requests:
+    #           storage: 1Gi
+    #       storageClassName: "managed-csi"
+    #       volumeMode: Filesystem
+    
+  params:
+  - name: repo-url
+    value: https://github.com/Carlos-ZRM/workbench-images.git
+  - name: img-registry
+    value: image-registry.openshift-image-registry.svc:5000/workbench-images/jupyter-tensorflow-c9s-py311-2026a-20240608:latest
+  - name: img-context
+    value: custom-recipes/jupyter-tensorflow-c9s-py311_2026a_20240608
+  - name: img-dockerfile
+    value: Containerfile
