@@ -45,7 +45,7 @@ patches:
         path: /spec/port/targetPort
         value: apiimg-5000
     target:
-      kind: Service
+      kind: Route
       labelSelector: "app=apiimg"
 images:
 - name: quay.io/rhdevelopers/bgd:default
