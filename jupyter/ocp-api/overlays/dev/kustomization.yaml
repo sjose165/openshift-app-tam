@@ -18,6 +18,13 @@ patches:
       - op: add
         path: /spec/revisionHistoryLimit
         value: 2
+      - op: replace
+        path: /spec/template/spec/containers/0/ports/0/containerPort
+        value: 5000
+      - op: replace
+        path: /spec/template/spec/containers/0/ports/0/name
+        value: apiimg-5000
+
       
     target:
       kind: Deployment
