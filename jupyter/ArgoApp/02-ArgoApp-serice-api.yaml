@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Carlos-ZRM/openshift-app.git
     targetRevision: HEAD
-    path: jupyter/ocp-api
+    path: jupyter/ocp-api/overlays/dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: ocp-api-dev
+    namespace: api-dev
