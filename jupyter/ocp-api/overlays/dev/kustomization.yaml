@@ -26,5 +26,5 @@ patches:
 images:
 - name: quay.io/rhdevelopers/bgd:default
   newTag: latest
-- name: quay.io/rhdevelopers/bgd:default
+- name: quay.io/rhdevelopers/bgd:latest
   newName: image-registry.openshift-image-registry.svc:5000/api-dev/api
