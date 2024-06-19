@@ -42,7 +42,6 @@ patches:
       - op: replace
         path: /spec/resourcetemplates/0/spec/params/3/value
         value: Containerfile
-
     target:
-      kind: ClusterRoleBinding
-      name: pipeline-privileged
+      kind: TriggerTemplate
+      name: triggertemplate-api
