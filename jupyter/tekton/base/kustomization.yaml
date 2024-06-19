@@ -18,8 +18,8 @@ patches:
   - path: 01-PVC.yaml
     target:
       kind: PersistentVolumeClaim
-      name: pvc-git-api
-      #labelSelector: "app=apiimg"
+      #name: pvc-git-api
+      labelSelector: "pipeline=build-api"
   - patch: |-
       - op: replace
         path: /spec/storageClassName
