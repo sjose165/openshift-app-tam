@@ -3,8 +3,8 @@ kind: Kustomization
 namespace: api-dev
 resources:
 - 01-PVC.yaml
-#- 02-Pipeline-api.yaml
-#- 03-CRB-Pipe-privileged.yaml
+- 02-Pipeline-api.yaml
+- 03-CRB-Pipe-privileged.yaml
 #- 04-imagestream.yaml
 #- 05-Triggertemplate.yaml
 #- 06-Triggerbinding.yaml
@@ -22,4 +22,10 @@ patches:
     target:
       kind: PersistentVolumeClaim
       name: pvc-git-api
-      #labelSelector: "pipeline=build-api"
+  - patch: |-
+      - op: replace
+        path: /subjects/0/namespace
+        value: api-dev
+    target:
+      kind: ClusterRoleBinding
+      name: pipeline-privileged
