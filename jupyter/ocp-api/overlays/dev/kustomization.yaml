@@ -6,6 +6,7 @@ resources:
 namespace: api-dev
 commonLabels:
   oper_env: dev
+  msg: hola
 patches:
   - path: deployment.yaml
     target:
