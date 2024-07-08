@@ -6,12 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Carlos-ZRM/openshift-app.git
+    repoURL: https://github.com/sjose165/openshift-app-tam.git
     targetRevision: HEAD
     path: jupyter/tekton/overlays/dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: api-dev
+    namespace: sergio-project-prueba
   syncPolicy:
     automated:
       selfHeal: true
