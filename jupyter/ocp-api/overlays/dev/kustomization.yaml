@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
 - ../../base
 #nameSuffix: -dev
-namespace: api-dev
+namespace: sergio-project-prueba
 commonLabels:
   oper_env: dev
 patches:
@@ -51,4 +51,4 @@ images:
 - name: quay.io/rhdevelopers/bgd:default
   newTag: latest
 - name: quay.io/rhdevelopers/bgd:latest
-  newName: image-registry.openshift-image-registry.svc:5000/api-dev/api
+  newName: image-registry.openshift-image-registry.svc:5000/sergio-project-prueba/api
