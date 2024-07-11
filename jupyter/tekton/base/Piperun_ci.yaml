@@ -11,9 +11,9 @@ spec:
       claimName: pvc-git-api
   params:
   - name: repo-url
-    value: https://github.com/Carlos-ZRM/openshift-app.git
+    value: https://github.com/sjose165/openshift-app-tam.git
   - name: img-registry
-    value: image-registry.openshift-image-registry.svc:5000/notapipe/api:latest
+    value: default-route-openshift-image-registry.apps.ocp.dev.cfeteit.mx/sergio-project-prueba/api:latest
   - name: img-context
     value: python/openapi
   - name: img-dockerfile
